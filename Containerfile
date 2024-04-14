@@ -20,3 +20,5 @@ COPY --from=builder /usr/src/requirements.txt ./
 # Pipfile is not needed in the final image
 RUN rm -f /usr/src/Pipfile /usr/src/Pipfile.lock \
   && pip install --no-cache-dir -r requirements.txt
+
+ENTRYPOINT ["/usr/local/bin/python", "download.py"]
