@@ -1,5 +1,5 @@
 # Generate requirements.txt from the Pipenv
-FROM python:3.12.2-alpine3.19 AS builder
+FROM python:3.12.4-alpine3.20 AS builder
 
 ENV PATH=/root/.local/bin:$PATH
 
@@ -11,7 +11,7 @@ RUN pip install --user pipenv \
   && pipenv requirements > requirements.txt
 
 # Build the app container image
-FROM python:3.12.2-alpine3.19
+FROM python:3.12.4-alpine3.20
 
 COPY src/ /usr/src/
 WORKDIR /usr/src
